@@ -94,7 +94,7 @@ a:hover{text-decoration:underline}
 const password=document.getElementById('password');
 document.getElementById('togglePassword').addEventListener('click',()=>{const visible=password.type==='password';password.type=visible?'text':'password';document.getElementById('togglePassword').textContent=visible?'Ocultar':'Mostrar';document.getElementById('togglePassword').setAttribute('aria-label',visible?'Ocultar senha':'Mostrar senha')});
 document.getElementById('forgot').addEventListener('click',e=>{e.preventDefault();const msg=document.getElementById('message');msg.style.display='block';msg.textContent='A recuperação de senha será habilitada quando a autenticação for conectada.'});
-document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();window.location.href='dashboard.html'});
+document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();const user=document.getElementById('username').value.trim();const pass=password.value;const msg=document.getElementById('message');if(user==='admin'&&pass==='1234'){msg.style.display='none';window.location.href='dashboard.html'}else{msg.style.display='block';msg.textContent='Usuário ou senha incorretos. Confira os dados e tente novamente.';password.value='';password.focus()}});
 </script>
 </body>
 </html>
