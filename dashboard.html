@@ -197,10 +197,10 @@ function pdvSubtotal(){return pdvCart.reduce((s,i)=>s+i.price*i.qty,0)}
 function pdvTotal(){return Math.max(0,pdvSubtotal()-Math.max(0,Number(el('pdvDiscount')?.value)||0))}
 function renderPDV(){if(!el('pdvProduct'))return;el('pdvProduct').innerHTML=products.map(p=>'<option value="'+p.id+'">'+p.name+' — '+money(p.price)+' (estoque '+p.stock+')</option>').join('');el('pdvProductList').innerHTML=products.map(p=>'<button type="button" class="pro-product" data-pdvquick="'+p.id+'"><strong>'+p.name+'</strong><small>Estoque: '+p.stock+'</small><span>'+money(p.price)+'</span></button>').join('');document.querySelectorAll('[data-pdvquick]').forEach(b=>b.onclick=()=>{el('pdvProduct').value=b.dataset.pdvquick;addPDVProduct()});el('pdvCart').className=pdvCart.length?'':'empty';el('pdvCart').innerHTML=pdvCart.length?pdvCart.map((i,n)=>'<div class="order-line"><div><strong>'+i.name+'</strong><div class="muted">'+i.qty+' × '+money(i.price)+'</div></div><div><strong>'+money(i.qty*i.price)+'</strong> <button class="btn" data-pdvremove="'+n+'">−</button></div></div>').join():'Adicione produtos para iniciar a venda.';el('pdvSubtotal').textContent=money(pdvSubtotal());el('pdvDiscountLabel').textContent=money(Math.max(0,Number(el('pdvDiscount').value)||0));el('pdvTotal').textContent=money(pdvTotal());el('pdvCount').textContent=pdvCart.reduce((s,i)=>s+i.qty,0)+' item(ns)';el('pdvChange').textContent=money(Math.max(0,(Number(el('pdvReceived').value)||0)-pdvTotal()));document.querySelectorAll('[data-pdvremove]').forEach(b=>b.onclick=()=>{pdvCart.splice(+b.dataset.pdvremove,1);renderPDV()})}
 function addPDVProduct(){const p=products.find(p=>p.id===+el('pdvProduct').value);const qty=Math.floor(Number(el('pdvQty').value));if(!p||!Number.isFinite(qty)||qty<1){toast('Informe uma quantidade válida.');return}const line=pdvCart.find(i=>i.id===p.id);if((line?line.qty:0)+qty>p.stock){toast('Quantidade maior que o estoque disponível.');return}if(line)line.qty+=qty;else pdvCart.push({id:p.id,name:p.name,price:p.price,qty});el('pdvQty').value='1';renderPDV()}
-function renderPay(){
+function renderPay(rebuildList=true){
  const open=orders.filter(o=>!o.closed);
  const previousId=Number(el('payOrder').value)||selectedId;
- el('payOrder').innerHTML=open.length?open.map(o=>'<option value="'+o.id+'">'+o.place+(o.customerName?' · '+o.customerName:'')+' — '+money(total(o))+'</option>').join(''):'<option value="">Nenhuma comanda aberta</option>';
+ if(rebuildList){el('payOrder').innerHTML=open.length?open.map(o=>'<option value="'+o.id+'">'+o.place+(o.customerName?' · '+o.customerName:'')+' — '+money(total(o))+'</option>').join(''):'<option value="">Nenhuma comanda aberta</option>';}
  const current=open.find(o=>o.id===Number(previousId))||open.find(o=>o.id===selectedId)||open[0]||null;
  if(current){el('payOrder').value=String(current.id);selectedId=current.id}else{el('payOrder').value='';selectedId=null}
  el('payOrderTitle').textContent=current?'Pedido de '+(current.customerName||current.place)+' · '+current.place:'Nenhuma comanda aberta';
@@ -226,7 +226,7 @@ el('goPay').onclick=()=>{
  renderPay();
 };
 
-el('payOrder').onchange=()=>{selectedId=Number(el('payOrder').value)||null;renderPay()}
+el('payOrder').onchange=()=>{selectedId=Number(el('payOrder').value)||null;renderPay(false)}
 el('pdvAdd').onclick=addPDVProduct;
 el('pdvSearchButton').onclick=()=>{const q=el('pdvSearch').value.trim().toLowerCase();const p=products.find(p=>String(p.id)===q||p.name.toLowerCase().includes(q));if(p){el('pdvProduct').value=p.id;addPDVProduct();el('pdvSearch').value=''}else toast('Produto não encontrado no cardápio.')};
 document.querySelectorAll('[data-pdvquick]').forEach(b=>b.onclick=()=>{el('pdvProduct').value=b.dataset.pdvquick;addPDVProduct()});
