@@ -138,6 +138,70 @@ body,.main{background:#171717!important;color:#f7f7f7!important}
 
 /* Controle de quantidade nas comandas */
 #comandas .qty-control{display:flex;align-items:stretch;gap:8px;max-width:260px}#comandas .qty-control input{width:90px;text-align:center;font-weight:800;background:#202020!important;color:#fff!important;border:1px solid #505050!important;border-radius:10px;padding:10px}#comandas .qty-control .qty-btn{min-width:44px;font-size:20px;font-weight:800;background:#383838!important;border:1px solid #505050!important;color:#fff!important}#comandas .qty-control #orderQtyPlus{background:#ff7900!important;color:#171717!important;border-color:#ff7900!important}
+
+/* VARANDA — interface profissional inspirada nas referências enviadas */
+:root{--bg:#f5f7fa;--panel:#fff;--panel2:#fff;--line:#e3e8ee;--gold:#f59e0b;--fire:#e64b3c;--text:#202a35;--muted:#687587;--green:#0fb981}
+body{background:#f5f7fa!important;color:#202a35!important}
+.app{grid-template-columns:220px minmax(0,1fr);background:#f5f7fa}
+.side{background:#fff;border-right:1px solid #e5e9ef;padding:20px 12px;box-shadow:2px 0 10px #1f293708}
+.brand{color:#d83e46!important;font-size:17px;padding:4px 8px 24px}
+.brand small{color:#657180!important}
+.mark{border-radius:12px}
+.nav{gap:5px}
+.nav button{color:#536171;border-radius:9px;padding:12px 13px;font-weight:650}
+.nav button.active,.nav button:hover{background:#eaf8f1;border-color:#c7f0dc;color:#07875d}
+.side-note{background:#f7f9fb;border-radius:10px;padding:12px;margin:22px 4px;color:#7a8796;font-size:11px}
+.main{padding:25px clamp(14px,2.5vw,32px)}
+.top{padding-bottom:16px;border-bottom:1px solid #e4e9ef;margin-bottom:20px}
+.eyebrow{color:#0b9c6b}
+.top h1{color:#202a35}
+.status{background:#e9f9f1;border-color:#b9efd6;color:#07875d}
+.cards{gap:12px}
+.stat,.section,.table-card{background:#fff;border:1px solid #e5eaf0;border-radius:13px;box-shadow:0 3px 12px #1f29370a}
+.stat strong{color:#202a35}
+.layout{gap:14px}
+.section-head{margin-bottom:16px}
+.section h2,.section h3{color:#253140}
+.btn{background:#fff;color:#344054;border:1px solid #d9e0e8;border-radius:9px}
+.btn.primary{background:#0caf7b;border-color:#0caf7b;color:#fff}
+.tablegrid{grid-template-columns:repeat(7,minmax(0,1fr));gap:9px}
+.table{min-height:86px;border:1px solid #a7e8ce;background:linear-gradient(145deg,#17bd86,#0aa878);border-radius:10px;color:#fff;padding:12px;box-shadow:0 2px 5px #0a9c6b1a}
+.table strong{font-size:14px}
+.table span,.table.open span{color:#eafff6}
+.table.open{background:linear-gradient(145deg,#f5a524,#e88b0c);border-color:#f6c36a;color:#fff}
+.table.selected{outline:3px solid #92e7c3;outline-offset:1px}
+.pill{background:#f1f5f9;border-color:#e0e7ef;color:#596779}
+.field label{color:#536171}
+.field input,.field select{background:#fff;border-color:#d7dfe8;color:#253140}
+.product{border-color:#edf0f4}
+.price{color:#07875d}
+.empty{background:#fafbfd;border-color:#d9e1e9;color:#718096}
+.pro-panel{border:1px solid #e2e8f0;border-radius:13px;box-shadow:0 3px 12px #1f29370a}
+.pro-search{background:#fff;color:#273444}
+.pro-search input,.pro-search select,.pro-client input,.pro-seller select,.pro-pay input{background:#fff;border-color:#d8e0e8;color:#273444}
+.pro-cart{background:#fff;color:#273444}
+.pro-cart .muted,.pro-cart .empty{color:#687587}
+.pro-cart .order-line{border-color:#edf0f4}
+.pro-client,.pro-seller{background:#fff;color:#273444}
+.pro-pay{background:#fff;color:#273444}
+.pro-pay .field label{color:#536171}
+.pro-choice .btn{background:#f5f7fa;color:#344054;border-color:#dce3ea}
+.pro-choice .btn.primary{background:#0caf7b;color:#fff;border-color:#0caf7b}
+.pro-total{background:#eaf8f1;color:#087653;border:1px solid #c7f0dc}
+.pro-total strong{color:#087653}
+.pro-discount{background:#fff8e8;color:#82520b}
+.pro-product{background:#fff;border:1px solid #e4e9ef;color:#263444;border-radius:12px;padding:0 0 12px;overflow:hidden;box-shadow:0 3px 10px #1f29370a}
+.pro-product .product-art{display:grid;place-items:center;height:86px;background:linear-gradient(135deg,#f0fdf6,#e4f8ee);font-size:38px;margin-bottom:10px}
+.pro-product .product-info{padding:0 11px}
+.pro-product strong{font-size:13px;line-height:1.35}
+.pro-product small{color:#738093}
+.pro-product span{color:#07875d}
+.pro-finish{background:#e64b3c!important;border-color:#e64b3c!important}
+.notice{color:#738093}
+.toast{background:#fff;color:#253140;border-color:#0caf7b;box-shadow:0 8px 30px #0002}
+@media(max-width:1100px){.tablegrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:650px){.app{grid-template-columns:1fr}.side{padding:10px;border-bottom:1px solid #e5e9ef}.brand{padding-bottom:10px}.nav button{padding:9px 11px}.main{padding:16px 12px}.tablegrid{grid-template-columns:repeat(3,minmax(0,1fr))}.table{min-height:76px;padding:9px}.table strong{font-size:12px}.pro-products{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 </style></head>
 <body><div class="app">
 <aside class="side"><div class="brand"><div class="mark" role="img" aria-label="Marca Varanda do Espeto"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="#170b05" stroke="#ffb52c" stroke-width="2.5"/><path d="M32 8C25 19 30 23 22 29c-7 6-2 16 7 17-3-8 5-10 5-18 8 8 8 13 4 18 12-5 12-16 4-24-3-6-6-10-10-14Z" fill="#ff7022" stroke="#ffd34e" stroke-width="1.5"/><path d="M18 19 46 43M46 19 18 43" stroke="#fff4df" stroke-width="4" stroke-linecap="round"/><path d="M15 15l-5-4M49 15l5-4" stroke="#fff4df" stroke-width="3" stroke-linecap="round"/></svg></div><div>VARANDA<small>DO ESPETO</small></div></div>
@@ -195,7 +259,7 @@ function renderStats(){el('openCount').textContent=orders.filter(o=>!o.closed).l
 let pdvCart=[];let pdvSaleType='À vista';
 function pdvSubtotal(){return pdvCart.reduce((s,i)=>s+i.price*i.qty,0)}
 function pdvTotal(){return Math.max(0,pdvSubtotal()-Math.max(0,Number(el('pdvDiscount')?.value)||0))}
-function renderPDV(){if(!el('pdvProduct'))return;el('pdvProduct').innerHTML=products.map(p=>'<option value="'+p.id+'">'+p.name+' — '+money(p.price)+' (estoque '+p.stock+')</option>').join('');el('pdvProductList').innerHTML=products.map(p=>'<button type="button" class="pro-product" data-pdvquick="'+p.id+'"><strong>'+p.name+'</strong><small>Estoque: '+p.stock+'</small><span>'+money(p.price)+'</span></button>').join('');document.querySelectorAll('[data-pdvquick]').forEach(b=>b.onclick=()=>{el('pdvProduct').value=b.dataset.pdvquick;addPDVProduct()});el('pdvCart').className=pdvCart.length?'':'empty';el('pdvCart').innerHTML=pdvCart.length?pdvCart.map((i,n)=>'<div class="order-line"><div><strong>'+i.name+'</strong><div class="muted">'+i.qty+' × '+money(i.price)+'</div></div><div><strong>'+money(i.qty*i.price)+'</strong> <button class="btn" data-pdvremove="'+n+'">−</button></div></div>').join():'Adicione produtos para iniciar a venda.';el('pdvSubtotal').textContent=money(pdvSubtotal());el('pdvDiscountLabel').textContent=money(Math.max(0,Number(el('pdvDiscount').value)||0));el('pdvTotal').textContent=money(pdvTotal());el('pdvCount').textContent=pdvCart.reduce((s,i)=>s+i.qty,0)+' item(ns)';el('pdvChange').textContent=money(Math.max(0,(Number(el('pdvReceived').value)||0)-pdvTotal()));document.querySelectorAll('[data-pdvremove]').forEach(b=>b.onclick=()=>{pdvCart.splice(+b.dataset.pdvremove,1);renderPDV()})}
+function renderPDV(){if(!el('pdvProduct'))return;el('pdvProduct').innerHTML=products.map(p=>'<option value="'+p.id+'">'+p.name+' — '+money(p.price)+' (estoque '+p.stock+')</option>').join('');el('pdvProductList').innerHTML=products.map(p=>{const art=({'Espetinho de carne':'🍢','Espetinho de frango':'🍗','Espetinho misto':'🥩','Refrigerante lata':'🥤','Água':'💧'})[p.name]||'🍽️';return '<button type="button" class="pro-product" data-pdvquick="'+p.id+'"><div class="product-art" aria-hidden="true">'+art+'</div><div class="product-info"><strong>'+p.name+'</strong><small>Estoque: '+p.stock+'</small><span>'+money(p.price)+'</span></div></button>'}).join('');document.querySelectorAll('[data-pdvquick]').forEach(b=>b.onclick=()=>{el('pdvProduct').value=b.dataset.pdvquick;addPDVProduct()});el('pdvCart').className=pdvCart.length?'':'empty';el('pdvCart').innerHTML=pdvCart.length?pdvCart.map((i,n)=>'<div class="order-line"><div><strong>'+i.name+'</strong><div class="muted">'+i.qty+' × '+money(i.price)+'</div></div><div><strong>'+money(i.qty*i.price)+'</strong> <button class="btn" data-pdvremove="'+n+'">−</button></div></div>').join():'Adicione produtos para iniciar a venda.';el('pdvSubtotal').textContent=money(pdvSubtotal());el('pdvDiscountLabel').textContent=money(Math.max(0,Number(el('pdvDiscount').value)||0));el('pdvTotal').textContent=money(pdvTotal());el('pdvCount').textContent=pdvCart.reduce((s,i)=>s+i.qty,0)+' item(ns)';el('pdvChange').textContent=money(Math.max(0,(Number(el('pdvReceived').value)||0)-pdvTotal()));document.querySelectorAll('[data-pdvremove]').forEach(b=>b.onclick=()=>{pdvCart.splice(+b.dataset.pdvremove,1);renderPDV()})}
 function addPDVProduct(){const p=products.find(p=>p.id===+el('pdvProduct').value);const qty=Math.floor(Number(el('pdvQty').value));if(!p||!Number.isFinite(qty)||qty<1){toast('Informe uma quantidade válida.');return}const line=pdvCart.find(i=>i.id===p.id);if((line?line.qty:0)+qty>p.stock){toast('Quantidade maior que o estoque disponível.');return}if(line)line.qty+=qty;else pdvCart.push({id:p.id,name:p.name,price:p.price,qty});el('pdvQty').value='1';renderPDV()}
 function renderPay(rebuildList=true){
  const open=orders.filter(o=>!o.closed);
